@@ -1,0 +1,40 @@
+{% extends "base.html" %} 
+{% block title %}
+ VIEW 
+ {% endblock %} 
+ {% block content%}
+<h1>FORM!</h1>
+<a href="/form">
+  <button>Add fields</button>
+</a>
+<a href="/file">
+  <button>Create Log txt</button>
+</a>
+<div class="col-md-7">
+  <table class="table table-striped table-hover table-bordered table-sm bg-white">
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>fullname</td>
+        <td>email</td>
+        <td>city</td>
+        <!-- <td>Operations</td> -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for field in fields %}
+      <tr>
+        <td>{{field.id}}</td>
+        <td>{{field.full_name}}</td>
+        <td>{{field.email}}</td>
+        <td>{{field.city}}</td>
+        <!-- <td>
+          <a href="/edit/{{fields.0}}" class="btn btn-secondary">edit</a>
+          <a href="/delete/{{fields.0}}" class="btn btn-danger btn-delete">delete</a>
+        </td> -->
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
