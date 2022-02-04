@@ -46,7 +46,7 @@ def file():
     file = open(os.path.abspath(os.getcwd())+"/logs.txt", "w")
     for log in logs:
         q = db.session.query(Fields).filter_by(id=log.id).first()
-        file.write(f" - {log}" + os.linesep)
+        file.write(f" - {log} --> {q.full_name}" + os.linesep)
     file.close()
     return render_template("index.html")
 
